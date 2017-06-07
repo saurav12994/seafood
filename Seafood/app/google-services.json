@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "755157850777",
+    "firebase_url": "https://seafood-9f762.firebaseio.com",
+    "project_id": "seafood-9f762",
+    "storage_bucket": "seafood-9f762.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755157850777:android:4bc764d748203ba6",
+        "android_client_info": {
+          "package_name": "com.example.sourabh.seafood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755157850777-jau417hnh3r9sbibfccj79oe3q8tt7n1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sourabh.seafood",
+            "certificate_hash": "5c24ca61fe79885d29fc3a5d0ccdbfcc250ffde4"
+          }
+        },
+        {
+          "client_id": "755157850777-dr4u4jshqlkjdij1gb3oe0ir7kbksad3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUqopUH5peTfRIIIo7tKNkpREtrz7clSw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755157850777-dr4u4jshqlkjdij1gb3oe0ir7kbksad3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
