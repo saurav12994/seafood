@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     String brand;
     ProgressDialog pd;
 
+
     private ArrayList<Item> mItem;
     String tag;
     private static String TAG="MainActivity";
@@ -59,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
         mItem = new ArrayList<>();
         pieChart = (PieChart) findViewById(R.id.idPieChart);
 Typeface typeface=Typeface.createFromAsset(getApplicationContext().getAssets(),"sansandroid.otf");
-cals=(TextView)findViewById(R.id.cal);
-cals.setTypeface(typeface);
-        carbs=(TextView)findViewById(R.id.car);
-        carbs.setTypeface(typeface);
-        protien=(TextView)findViewById(R.id.pr);
-        protien.setTypeface(typeface);
-        fats=(TextView)findViewById(R.id.fat);
-        fats.setTypeface(typeface);
+//cals=(TextView)findViewById(R.id.cal);
+//cals.setTypeface(typeface);
+  //      carbs=(TextView)findViewById(R.id.car);
+    ///    carbs.setTypeface(typeface);
+       /// protien=(TextView)findViewById(R.id.pr);
+        //protien.setTypeface(typeface);
+       // fats=(TextView)findViewById(R.id.fat);
+       // fats.setTypeface(typeface);
         pieChart.setRotationEnabled(true);
         foodname=(TextView)findViewById(R.id.foodname);
         serve=(TextView)findViewById(R.id.serving);

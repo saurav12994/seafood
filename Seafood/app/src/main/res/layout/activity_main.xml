@@ -4,85 +4,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#e0e0e0"
 
-    <TextView
-        android:layout_width="wrap_content"
+    >
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card1"
+    app:cardElevation="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:elevation="40dp">
+
+
+    <GridLayout
+        android:id="@+id/GridLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Food Description"
-        android:id="@+id/te1"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginLeft="100dp"
-        android:textColor="#f91a1a" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/te1"
-        android:id="@+id/foodname"
-        android:layout_marginLeft="150dp"
-        android:textColor="@color/colorPrimary"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="15dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/serving"
-        android:layout_below="@+id/foodname"
-        android:layout_marginLeft="150dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="15dp"/>
+        android:columnCount="2"
+        android:rowCount="2"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/button1"
+
+            android:layout_columnWeight="1"
+            android:text="Foodname"
+            />
+
+        <TextView
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/foodname"
+
+            android:text="Button"
+            android:layout_columnWeight="1"/>
+
+        <TextView
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/button3"
+
+            android:text="Serving"
+            android:layout_columnWeight="1"/>
+
+        <TextView
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/serving"
+
+            android:text="Button"
+            android:layout_columnWeight="1"/>
+    </GridLayout>
+
+</android.support.v7.widget.CardView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rl1"
-        android:layout_below="@+id/serving"
-        android:layout_marginTop="25dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cal"
-            android:layout_marginLeft="25dp"
-            android:text="Calories"
-            android:textStyle="bold"
-            android:textColor="#969696" />
+        android:layout_below="@+id/card1"
+        android:layout_marginTop="20dp"
 
+        android:id="@+id/relative">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/car"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/cal"
-            android:textStyle="bold"
-            android:text="Carbohydrate"
-            android:textColor="#006fff" />
+            android:id="@+id/tex"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@drawable/dot"
+            android:text="Calories"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pr"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/car"
-            android:textStyle="bold"
-            android:text="Protein"
-            android:textColor="#ff1818" />
-
+            android:id="@+id/tex1"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tex"
+            android:text="Carbohydrates"
+            android:drawableLeft="@drawable/dot1"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_toRightOf="@+id/pr"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/fat"
-            android:textStyle="bold"
-            android:text="Fat"
-            android:textColor="#7ee96e" />
+            android:id="@+id/tex2"
+            android:textSize="13dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/tex1"
+            android:text="Proteins"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/dot2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tex3"
+            android:textSize="13dp"
+            android:layout_toRightOf="@+id/tex2"
+            android:text="Fats"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/dot3"/>
 
 
     </RelativeLayout>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rl1"
+
         android:layout_marginTop="20dp"
         android:id="@+id/idPieChart"></com.github.mikephil.charting.charts.PieChart>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
