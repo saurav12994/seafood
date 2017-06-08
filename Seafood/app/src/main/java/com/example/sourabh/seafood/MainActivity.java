@@ -1,9 +1,11 @@
 package com.example.sourabh.seafood;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressMore, mProgressSearch;
     private FatSecretSearch mFatSecretSearch;
     private FatSecretGet mFatSecretGet;
-    TextView fats, carbs, cals, protien;
+    TextView fats, carbs, cals, protien,foodname,serve;
     String brand;
+    ProgressDialog pd;
 
     private ArrayList<Item> mItem;
     String tag;
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         tag = getIntent().getStringExtra("food_name");
         //button = (Button) findViewById(R.id.button);
+
         mItem = new ArrayList<>();
         pieChart = (PieChart) findViewById(R.id.idPieChart);
 Typeface typeface=Typeface.createFromAsset(getApplicationContext().getAssets(),"sansandroid.otf");
@@ -64,6 +68,8 @@ cals.setTypeface(typeface);
         fats=(TextView)findViewById(R.id.fat);
         fats.setTypeface(typeface);
         pieChart.setRotationEnabled(true);
+        foodname=(TextView)findViewById(R.id.foodname);
+        serve=(TextView)findViewById(R.id.serving);
         //pieChart.setUsePercentValues(true);
         //pieChart.setHoleColor(Color.BLUE);
         //pieChart.setCenterTextColor(Color.BLACK);
@@ -71,6 +77,7 @@ cals.setTypeface(typeface);
         pieChart.setTransparentCircleAlpha(0);
         pieChart.setCenterText("Super Cool Chart");
         pieChart.setCenterTextSize(10);
+        foodname.setText(tag);
 
         searchFood(tag,1);
 
@@ -143,6 +150,14 @@ cals.setTypeface(typeface);
     private void getFood(final long id) {
         new AsyncTask<String, JSONObject, JSONObject>() {
             @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pd = new ProgressDialog(MainActivity.this);
+                pd.setMessage("loading");
+                pd.show();
+            }
+
+            @Override
             protected JSONObject doInBackground(String... arg0) {
 
                 JSONObject foodGet = mFatSecretGet.getFood(id);
@@ -157,6 +172,8 @@ cals.setTypeface(typeface);
                         String protein = serving.getString("protein");
                         String fat = serving.getString("fat");
                         String serving_description = serving.getString("serving_description");
+
+
                         Log.e("serving_description", serving_description);
                         /**
                          * Displays results in the LogCat
@@ -166,7 +183,10 @@ cals.setTypeface(typeface);
                         Log.e("carbohydrate", carbohydrate);
                         Log.e("protein", protein);
                         Log.e("fat", fat);
-                        Display_Details(foodGet);
+
+
+
+                        //  Display_Details(foodGet);
                         //cals.setText("Carbohydrates : "+carbohydrate);
                     }
 
@@ -179,6 +199,10 @@ cals.setTypeface(typeface);
             @Override
             protected void onPostExecute(JSONObject result) {
                 super.onPostExecute(result);
+                if (pd != null)
+                {
+                    pd.dismiss();
+                }
                 try {
                     Display_Details(result);
                 } catch (JSONException e) {
@@ -220,6 +244,7 @@ cals.setTypeface(typeface);
                     /**
                      * Displays results in the LogCat
                      */
+                serve.setText(serving_description);
                     Log.e("food_name", food_name);
                     Log.e("calories", calories);
                     Log.e("carbohydrate", carbohydrate);
@@ -253,12 +278,15 @@ cals.setTypeface(typeface);
                     legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
 
                     //create pie data object
+
+
                     PieData pieData = new PieData(pieDataSet);
                     pieChart.setData(pieData);
                     pieChart.invalidate();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(MainActivity.this,"Conectivity error ",Toast.LENGTH_LONG).show();
                 }
 
 

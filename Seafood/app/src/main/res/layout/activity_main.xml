@@ -11,12 +11,32 @@
         android:layout_height="wrap_content"
         android:text="Food Description"
         android:id="@+id/te1"
-        android:layout_marginLeft="150dp"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginLeft="100dp"
+        android:textColor="#f91a1a" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/te1"
+        android:id="@+id/foodname"
+        android:layout_marginLeft="150dp"
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/serving"
+        android:layout_below="@+id/foodname"
+        android:layout_marginLeft="150dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="15dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rl1"
-        android:layout_below="@+id/te1"
+        android:layout_below="@+id/serving"
         android:layout_marginTop="25dp">
         <TextView
             android:layout_width="wrap_content"
